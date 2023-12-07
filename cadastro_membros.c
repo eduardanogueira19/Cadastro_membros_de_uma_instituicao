@@ -76,6 +76,9 @@ int main(){
 				system("pause");
 				system("cls");
 				break;
+			case 3: 
+				printf("Saindo...\n");
+				break;
 			default: 
 				printf("[!] Opcao invalida\n\n");
 				system("pause");
