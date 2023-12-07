@@ -1,4 +1,4 @@
-//programa para cadastrar membros da igreja
+//programa para cadastrar membros
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -8,10 +8,11 @@ struct cadastro{
 	char nome[100];
 	char cpf[15];
 	char nascimento[20];
+	char endereco[200];
 };
 
 struct cadastro pessoa[99];
-qnt = 0;
+qnt = 0; 
 //função para o cadastro dessa pessoa
 void cadastro()
 {
@@ -24,6 +25,9 @@ void cadastro()
 	printf("Insira a data de nascimento: \n");
 	fflush(stdin);
 	gets(pessoa[qnt].nascimento);
+	printf("Insira seu endereco: \n");
+	fflush(stdin);
+	gets(pessoa[qnt].endereco);
 	qnt++;
 	system("cls");
 	
@@ -33,10 +37,12 @@ void listarMembros(){
 	int i;
 	
 	for(i=0; i<qnt; i++){
-		printf("Nome: %s \n", pessoa[i].nome);
-		printf("CPF: %s \n", pessoa[i].cpf);
-		printf("Nascimento: %s \n", pessoa[i].nascimento);
-		printf("======================================\n");
+		printf("\t\t=================================================================\n");
+		printf("\t\t|Nome: %s                                                        |\n", pessoa[i].nome);
+		printf("\t\t|CPF: %s                                                         |\n", pessoa[i].cpf);
+		printf("\t\t|Nascimento: %s                                                  |\n", pessoa[i].nascimento);
+		printf("\t\t|Endereco: %s                                                    |\n", pessoa[i].endereco);
+		printf("\t\t=================================================================\n");
 	}
 	
 }
@@ -62,14 +68,17 @@ int main(){
 		switch(op){
 			case 1: 
 				cadastro();
+				system("pause");
 				system("cls");
 				break;
 			case 2:
 				listarMembros();
+				system("pause");
 				system("cls");
 				break;
 			default: 
-				printf("Opcap invalida");
+				printf("[!] Opcao invalida\n\n");
+				system("pause");
 				break;
 		}
 	}while(op != 3);
