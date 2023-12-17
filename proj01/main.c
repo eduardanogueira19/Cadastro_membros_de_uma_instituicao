@@ -9,9 +9,11 @@ struct dados{
     int idade;
     int ano_nascimento;
 };
+
 struct dados pessoa[99];
 int qnt =0;
 
+//cadastro
 void cadastro(){
     printf("Insira seu nome completo:\n");
     fflush(stdin);
@@ -25,33 +27,34 @@ void cadastro(){
     printf("Insira seu ano de nascimento:\n");
     fflush(stdin);
     scanf("%d", &pessoa[qnt].ano_nascimento);
-
     qnt++;
 }
 
+//Listar todos os cadastros
 void lista(){
     int i;
+
     for (i=0; i < qnt; i++) {
         printf("Nome: %s\n", pessoa[i].nome);
         printf("CPF: %s\n", pessoa[i].cpf);
         printf("Idade: %d\n", pessoa[i].idade);
         printf("Nascimento: %d\n", pessoa[i].ano_nascimento);
         printf("__________________________________________________\n");
-
     }
 }
 
+//Listar por idade
 void listar_idade(int tipoIdade){
     int opcao=0;
     int i=0;
+
     do{
-        printf("Escolha a faixa etária que deseja listar:");
+        printf("Escolha a faixa etária que deseja listar:\n");
         printf("1 - Infantil\n");
         printf("2 - Jovem\n");
         printf("3 - Adulto\n");
-        printf("4 - Idoso");
+        printf("4 - Idoso\n");
         scanf("%d", &opcao);
-
         switch(opcao){
 
             case 1://1 - Infantil
@@ -79,6 +82,7 @@ void listar_idade(int tipoIdade){
                     }
                 }
                 break;
+
             case 3://3 - Adulto
                 printf("Cadastros de 19 a 59 anos: \n\n");
                 for (i=0; i < qnt; i++) {
@@ -91,6 +95,7 @@ void listar_idade(int tipoIdade){
                     }
                 }
                 break;
+
             case 4://4 - Idoso
                 printf("Cadastros acima de 60 anos: \n\n");
                 for (i=0; i < qnt; i++) {
@@ -108,6 +113,8 @@ void listar_idade(int tipoIdade){
     }while(opcao > 4 );
 
 }
+
+//Listar por ano de nascimento
 void listar_nascimento(int tipoNascimento){
     int opcao=0;
     int i=0;
@@ -142,6 +149,7 @@ int main(){
         printf("4 - Listar por ano de nascimento\n");
         printf("5 - Sair\n");
         scanf("%d", &op);
+        system("cls");
 
         switch(op)
         {
